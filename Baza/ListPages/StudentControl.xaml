@@ -1,0 +1,153 @@
+﻿<UserControl x:Class="baza.ListPages.StudentControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:baza.ListPages"
+             mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#FFDBC8FF">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Margin" Value="0 8 0 2"/>
+                <Setter Property="FontWeight" Value="DemiBold"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="Height" Value="30"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+        </Grid.Resources>
+        
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="250" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="#F6F6F6" Grid.ColumnSpan="3">
+            <TextBox x:Name="searchtxt" Background="#673AB7" Margin="40 7" md:HintAssist.HelperText="Search" FontSize="18" Foreground="White" FontWeight="DemiBold" HorizontalAlignment="Left" Width="130" KeyUp="searchtxt_KeyUp"/>
+            <TextBlock Text="STUDENT" FontSize="25" FontWeight="Bold" Foreground="#673AB7" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+        
+        <Grid x:Name="studentGrid" Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Margin="40 0 10 0" Grid.Column="0">
+                    <TextBlock Text=" Firstname:"/>
+                    <TextBox x:Name="fnameTxt" BorderThickness="1" Text="{Binding Fname}"/>
+                    <TextBlock Text=" Lastname:" />
+                    <TextBox x:Name="lnameTxt" BorderThickness="1" Text="{Binding Lname}"/>
+                    <TextBlock Text=" Phone:" />
+                    <TextBox x:Name="phoneTxt" Text="{Binding Phone}"/>
+                </StackPanel>
+            <StackPanel Grid.Column="1">
+                <TextBlock Text=" Survey:" />
+                <ComboBox x:Name="survetCmb" Background="White" Height="30" FontSize="16" Text="{Binding Survey}">
+                    <ComboBoxItem>Social Network</ComboBoxItem>
+                    <ComboBoxItem>Flayer</ComboBoxItem>
+                    <ComboBoxItem>Friend</ComboBoxItem>
+                </ComboBox>
+                <TextBlock Text=" Databirth:" />
+                <DatePicker x:Name="datepicker" Text="{Binding DateBirth}" Height="30" Background="White" SelectedDate="2000/1/1" SelectedDateFormat="Short" />
+                <TextBlock Text=" Moderator:" />
+                <ComboBox x:Name="moderatorCmb" Text="{Binding Moderator}" Background="White" FontSize="16">
+                    <ComboBoxItem>Yulduz Ikromova</ComboBoxItem>
+                    <ComboBoxItem>Sitora Akbarova</ComboBoxItem>
+                </ComboBox>
+                <!--<ComboBox x:Name="groupsCmb"  Height="30" Background="White"  />-->
+            </StackPanel>
+        </Grid>
+
+     
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button x:Name="InsertBtn" Margin="10" Width="100" Click="InsertBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <md:PackIcon Kind="AccountAdd"/>
+                    <ContentControl  Content=" Add"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="updateBtn" Margin="10" Width="100" Click="updateBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <md:PackIcon Kind="Update"/>
+                    <ContentControl  Content=" Update"/>
+                </StackPanel>
+            </Button>
+            
+            <!--<Button x:Name="clearBtn" Margin="10" Width="100" Click="clearBtn_Click">
+                <StackPanel Orientation="Horizontal">
+                    <md:PackIcon Kind="ClearOctagon" Height="19"/>
+                    <ContentControl  Content=" Clear"/>
+                </StackPanel>
+            </Button>-->
+        </StackPanel>
+
+        <DataGrid x:Name="StudentDatagrid" Grid.Row="2" Grid.ColumnSpan="3" FontSize="16" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="False"
+                  GridLinesVisibility="All" ItemsSource="{Binding }" Margin="40 10 40 20" LoadingRow="StudentDatagrid_LoadingRow">
+
+            <DataGrid.Columns>
+                <!--<DataGridTextColumn Binding="{Binding familyId}" Header="Id"/>-->
+                <!--<DataGridTextColumn Binding="{Binding}" Header="N"  Width="70"/>-->
+                <DataGridTextColumn Binding="{Binding Fname}" Header="Firstname"  Width="150">
+                    <!--<DataGridTextColumn.HeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="Green"/>
+                                <Setter Property="Foreground" Value="Red"/>
+                                
+                            </Style>
+                        </DataGridTextColumn.HeaderStyle>-->
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Lname}" Header="Lastname" Width="150"/>
+                <DataGridTextColumn Binding="{Binding Phone}" Header="Phone" Width="170"/>
+                <DataGridTextColumn Binding="{Binding Survey}" Header="Survey" Width="160"/>
+                <DataGridTextColumn Binding="{Binding DateBirth, StringFormat=dd-MM-yyyy}" Header="Date of birth" Width="160"/>
+                <DataGridTextColumn Binding="{Binding Moderator}" Header="Moderator" Width="160"/>
+
+                <DataGridTemplateColumn Header="Update">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="updateCellBtn" Click="updateCellBtn_Click" >
+                                <StackPanel Orientation="Horizontal">
+                                    <md:PackIcon Kind="Edit"/>
+                                    <ContentControl  Content=" Edit"/>
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Delete" Width="125">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="deleteBtn" Click="deleteBtn_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <md:PackIcon Kind="Delete"/>
+                                    <ContentControl  Content="Delete" Margin="5 0"/>
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <TextBlock Text="   Groups" Grid.Row="1" Grid.Column="2" Margin="0 5 0 0"/>
+        <ListBox x:Name="groupsLbx" Grid.Row="1" Grid.Column="2" FontSize="18" Background="White" Margin="10 33 40 10">
+
+        </ListBox>
+    </Grid>
+</UserControl>

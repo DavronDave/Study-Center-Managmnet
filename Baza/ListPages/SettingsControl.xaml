@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="baza.ListPages.SettingsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:baza.ListPages"
+             mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#FFDBC8FF">
+        <!--<ProgressBar  Value="5"  Height="20" Foreground="Red" Background="White" Maximum="500" />-->
+        <!--<ProgressBar  Orientation="Vertical"  Height="10"  IsIndeterminate="True" HorizontalAlignment="Right" />
+        <ProgressBar  IsIndeterminate="True" Height="10" VerticalAlignment="Bottom" />-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="44"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.ColumnSpan="2" Background="White">
+            <TextBlock Text="SETTINGS" FontSize="25" Foreground="#673AB7" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="20" Width="400">
+            <TextBlock Text=" Change Center name:" Margin="5" FontSize="18" FontWeight="DemiBold"/>
+            <TextBox x:Name="changeCenterTXB" Height="30" Background="White"/>
+            <Button x:Name="changeAccBtn" Content="Change" Margin="0 20 0 0" Width="100" Click="changeAccBtn_Click"/>
+            <TextBlock Text=" Change account name:" Margin="5" FontSize="18" FontWeight="DemiBold"/>
+            <TextBox x:Name="changenameTXB" Height="30" Background="White"/>
+            <Button x:Name="changeNameBtn" Content="Change" Margin="0 20 0 0" Width="100" Click="changeNameBtn_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Background="White" Margin="30">
+            <StackPanel Orientation="Horizontal" Margin="30 30 0 0">
+                <TextBlock Text="Students : " Foreground="#673AB7" FontSize="23" FontWeight="DemiBold"/>
+                <TextBlock x:Name="numberstudents" Text="" Foreground="#673AB7" FontSize="23"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="30 0">
+                <TextBlock Text="    Flayer  : " FontSize="18" FontWeight="DemiBold"/>
+                <TextBlock x:Name="numberstudentflayer" Text="" FontSize="18"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="30 0">
+                <TextBlock Text="    Social  : " FontSize="18" FontWeight="DemiBold"/>
+                <TextBlock x:Name="numberstudentsocial" Text="" FontSize="18"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="30 0">
+                <TextBlock Text="    Friend : " FontSize="18" FontWeight="DemiBold"/>
+                <TextBlock x:Name="numberstudentfriend" Text="" FontSize="18"/>
+            </StackPanel>
+            <TextBlock/>
+            <StackPanel Orientation="Horizontal" Margin="30 0">
+                <TextBlock Text="Teachers : "  Foreground="#673AB7" FontSize="23" FontWeight="DemiBold"/>
+                <TextBlock x:Name="numberteacher" Text="" Foreground="#673AB7" FontSize="23"/>
+            </StackPanel>
+            <TextBlock/>
+            <StackPanel Orientation="Horizontal" Margin="30 0">
+                <TextBlock Text="Adminstrators" Foreground="#673AB7" FontSize="23" FontWeight="DemiBold"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="30 0">
+                <TextBlock Text="    Yulduz Ikromova : " FontSize="18" FontWeight="DemiBold"/>
+                <TextBlock x:Name="moderatoryulduz" Text="" FontSize="23"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="30 0">
+                <TextBlock Text="    Sitora Akbarova  : " FontSize="18" FontWeight="DemiBold"/>
+                <TextBlock x:Name="moderatorsitora" Text="" FontSize="23"/>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

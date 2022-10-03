@@ -1,0 +1,20 @@
+﻿StudyCenter
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\davro\Desktop\Study Center Managment\baza\obj\Debug\net5.0-windows\
+StudyCenter
+none
+false
+TRACE;DEBUG;NET;NET5_0;NETCOREAPP
+C:\Users\davro\Desktop\Study Center Managment\baza\App.xaml
+6-52555558
+
+201571454049
+2161126713307
+ListPages\GroupControl.xaml;ListPages\SettingsControl.xaml;ListPages\StudentControl.xaml;ListPages\TeacherControl.xaml;LoginWindow.xaml;MainWindow.xaml;
+
+False
+

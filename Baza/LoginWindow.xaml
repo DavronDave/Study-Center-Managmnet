@@ -1,0 +1,34 @@
+﻿<Window x:Class="baza.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:baza"        
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="LoginWindow" Height="550" Width="850">
+    <Grid Background="#673AB7">
+       
+        <Border Background="White" Opacity="0.8" CornerRadius="70" Margin="50">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="30">
+                    <TextBlock Text="Sign In" Foreground="#673AB7" FontSize="35" HorizontalAlignment="Center" FontWeight="Black" FontFamily="Century Schoolbook"/>
+                    <TextBlock Text="Sign in and start managing your candidates" FontSize="16" FontWeight="DemiBold"/>
+                    <TextBlock/>
+                    <TextBlock Text="  Username" FontSize="18" Foreground="#673AB7" FontWeight="DemiBold"/>
+                    <TextBox x:Name="usernameTxb" Height="30" Foreground="White" FontSize="17" Background="#805FB7"/>
+                    <TextBlock Text="  Password" Foreground="#673AB7" FontSize="18" FontWeight="DemiBold"/>
+                    <PasswordBox x:Name="passwordTxb" Height="30" Foreground="White" Background="#805FB7"/>
+                    <Button x:Name="loginBtn" Margin="15" Width="100" Content="Login" Click="loginBtn_Click"/>
+                </StackPanel>
+                <Image Source="C:\Users\user\Desktop\1acc.jpg" Margin="20"/>
+            </Grid>
+            
+        </Border>
+    </Grid>
+</Window>
